@@ -9,3 +9,7 @@ export interface IMessage {
 export interface IMessageSource {
   get(id: string): Promise<IMessage>;
 }
+
+export interface IConfig {
+  host: string;
+}
