@@ -1,3 +1,6 @@
+import { ICallContext } from "standard-api";
+import Response from "./Response";
+
 export interface IMessage {
   id: string;
   sender: string;
@@ -11,5 +14,14 @@ export interface IMessageSource {
 }
 
 export interface IConfig {
-  host: string;
+  graphqlHost: string;
+  graphqlPort: number;
 }
+
+export type HandlerFunc = (
+  command: string,
+  messageId: string,
+  sender: string,
+  config: IConfig,
+  context: ICallContext
+) => Promise<Response | undefined>;
