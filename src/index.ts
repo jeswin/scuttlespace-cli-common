@@ -28,18 +28,16 @@ export interface IHandlerResponse {
   message?: string;
 }
 
-export interface IScuttleSpaceModule {
-  handle(
-    message: IMessage<any>,
-    msgSource: IMessageSource
-  ): Promise<IHandlerResponse | void>;
-}
-
 export type HandlerFunc = (
   message: IMessage<any>,
-  config: IConfig,
+  messageSource: IMessageSource,
   context: ICallContext
-) => Promise<Response | undefined>;
+) => Promise<IHandlerResponse | undefined>;
+
+export interface IScuttleSpaceModule {
+  handle: HandlerFunc;
+  init(config: IConfig): Promise<void>;
+}
 
 export function extractText(source: IMessage<any>, botPublicKey: string) {
   const text = source && source.content && source.content.text;
