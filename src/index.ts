@@ -4,6 +4,7 @@ import Response from "./Response";
 export { default as Response } from "./Response";
 
 export interface IConfig {
+  botMention: string;
   graphqlHost: string;
   graphqlPort: number;
 }
@@ -31,6 +32,7 @@ export interface IHandlerResponse {
 export type HandlerFunc = (
   message: IMessage<any>,
   messageSource: IMessageSource,
+  config: IConfig,
   context: ICallContext
 ) => Promise<IHandlerResponse | undefined>;
 
