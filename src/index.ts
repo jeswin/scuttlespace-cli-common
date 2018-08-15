@@ -36,7 +36,7 @@ export type HandlerFunc = (
   context: ICallContext
 ) => Promise<IHandlerResponse | undefined>;
 
-export interface IScuttleSpaceModule {
+export interface IScuttlespaceCommandsModule {
   handle: HandlerFunc;
   init(config: IConfig): Promise<void>;
 }
@@ -50,3 +50,4 @@ export function extractText(source: IMessage<any>, botPublicKey: string) {
         .trim()
     : undefined;
 }
+  
