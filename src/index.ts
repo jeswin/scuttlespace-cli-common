@@ -1,5 +1,5 @@
+import ApolloClient from "apollo-client";
 import { ICallContext } from "standard-api";
-import Response from "./Response";
 
 export { default as Response } from "./Response";
 
@@ -33,6 +33,9 @@ export type HandlerFunc = (
   message: IMessage<any>,
   messageSource: IMessageSource,
   config: IConfig,
+  opts: {
+    apolloClient: ApolloClient<any>;
+  },
   context: ICallContext
 ) => Promise<IHandlerResponse | undefined>;
 
@@ -50,4 +53,3 @@ export function extractText(source: IMessage<any>, botPublicKey: string) {
         .trim()
     : undefined;
 }
-  
