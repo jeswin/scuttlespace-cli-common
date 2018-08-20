@@ -32,6 +32,7 @@ export interface IHandlerResponse {
 
 export type HandlerFunc = (
   message: IMessage<any>,
+  pub: string,
   messageSource: IMessageSource,
   config: IConfig,
   opts: {
