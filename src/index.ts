@@ -4,6 +4,7 @@ import { ICallContext } from "standard-api";
 export { default as Response } from "./Response";
 
 export interface IConfig {
+  hostname: string;
   botMention: string;
   graphqlHost: string;
   graphqlPort: number;
